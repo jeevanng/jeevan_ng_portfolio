@@ -1,0 +1,79 @@
+/* Change the properties of the buttons on the page */
+main {
+  font-family: "Bebas Neue", cursive;
+  font-size: 1.8rem;
+  color: #313e20;
+}
+main article {
+  padding: 10px;
+}
+main article .resume {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 10px;
+}
+main article .resume #resume-button {
+  font-family: "Bebas Neue", cursive;
+  font-size: 1.8rem;
+  color: black;
+  background-color: #BC6C25;
+}
+main article .resume #resume-button:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+main article section {
+  margin: 15px;
+}
+main article section .highlight_text {
+  color: #67753a;
+}
+main article section h2 {
+  color: black;
+}
+main article section .workphotos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  text-align: center;
+  justify-content: space-between;
+}
+main article section .workphotos .work-project {
+  padding-bottom: 10px;
+  border-bottom: 1px solid black;
+}
+main article section .workphotos .work-project #project-button {
+  font-family: "Bebas Neue", cursive;
+  font-size: 1.8rem;
+  color: black;
+  background-color: #BC6C25;
+}
+main article section .workphotos .work-project #project-button:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+main article section .workphotos .work-project .project_text {
+  border-bottom: 1px solid black;
+}
+main article section .workphotos .work-project img {
+  width: 80%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border: 3px solid black;
+}
+
+/* When screen is wider than 480 pixels, make these changes */
+@media screen and (min-width: 480px) {
+  main article section .workphotos .work-project img {
+    width: 75%;
+  }
+}
+/* When screen is wider than 768px width */
+@media screen and (min-width: 768px) {
+  main article .resume {
+    justify-content: flex-start;
+  }
+  main article section .workphotos .work-project img {
+    width: 60%;
+  }
+}/*# sourceMappingURL=work.css.map */

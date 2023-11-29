@@ -1,0 +1,90 @@
+@import "../defaults/color";
+@import "../defaults/breakpoints";
+
+
+main{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    font-family: 'Bebas Neue', cursive; 
+    font-size: 1.8rem;
+
+    /* Percentage allow the article to be responsive to all screen widths
+    whilst maintaining the ratio of screen space the article
+    takes */
+    article{
+        width: 80%;
+
+        section{
+            padding-bottom: 10px;
+            border-bottom: 1px solid black;
+            
+            /* Remove underline for hyperlink */
+            text-decoration: none;
+
+            h3{
+                color: black;
+            }
+
+            h4{
+                padding: 0;
+                margin: 0;
+                color: black;
+            }
+
+            p{
+                color: $primary-color;
+            }
+
+            .outer_image_border{
+                border: 3px solid black;
+                margin: none;
+                overflow: hidden;
+                    
+                    img{
+                        width: 100%;
+                        object-fit: cover;
+                        /* Moves image to bottom, removing gap */
+                        vertical-align: bottom;
+                        text-align: center;
+                }
+            }
+        }
+    }
+}
+
+/* When the screen is wider than 1008px, make the blog images appear in a wrap format, side by side. */
+@media screen and (min-width: $desktop){
+    main{
+
+        // Make the article take 40% of the screen
+        article{
+            width: 40%;
+
+            section{
+
+                a{
+                    img{
+                        width: 100%;
+                    }
+                }
+            }
+        
+        }
+    }
+}
+
+/* Animate images in blog page to zoom in when larger than 480px width */
+
+@media screen and (min-width: $mobile){
+
+    #image_animate{
+        transition: transform 0.75s;
+     
+        &:hover{
+            transform: scale(1.1);
+            opacity: 0.8;
+            cursor: pointer;
+        }
+    }
+}

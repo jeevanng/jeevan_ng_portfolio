@@ -1,0 +1,298 @@
+@import "../defaults/color";
+@import "../defaults/breakpoints";
+
+@mixin inner-triangle-dimensions{
+    width: 100%;
+    height: 100%;
+}
+
+@mixin inner-triangle-text{
+    color: $base-color;
+    font-size: 2rem;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+    font-family: 'Bebas Neue', cursive;
+    padding-top: 10px;
+}
+
+$image-height: 16vh;
+
+/* Create shape for photos to be held in and assign orientation to vertical and centre */
+.mountain{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+    img{
+        object-fit: cover;
+        /* Ensures image fills container fully when minimizing screen width */
+        height: 100%;
+        width: 100%;
+    }
+    
+    // Outer triangle using clip-path to create
+    .triangle {
+        width: 15%;
+        height: 100px;
+        background-color: black;
+        clip-path: polygon(52% 1%, 0% 96%, 10% 95%, 16% 96%, 26% 93%, 30% 96%, 40% 92%, 46% 97%, 53% 92%, 59% 95%, 69% 89%, 74% 95%, 80% 94%, 85% 96%, 91% 93%, 99% 95%);
+
+        // Inner triangle and contains image
+        .inner_triangle{
+            @include inner-triangle-dimensions();
+            background-color: $base-color;
+            clip-path: polygon(52% 11%, 6% 93%, 15% 85%, 16% 92%, 27% 78%, 31% 89%, 42% 67%, 46% 89%, 50% 76%, 59% 92%, 69% 77%, 75% 90%, 81% 87%, 84% 91%, 84% 80%, 94% 92%);
+        }
+    }  
+
+    .triangle2 {
+        width: 30%;
+        height: 100px;
+        background-color: black;
+        clip-path: polygon(25% 0%, 75% 0%, 100% 95%, 0% 95%);
+        /* Fixes the image and text link, makes the text take the width of 
+         this triangle and not the whole screen */
+        position: relative;
+
+        .inner_triangle2{
+            @include inner-triangle-dimensions();
+            clip-path: polygon(26.3% 4%, 73.8% 4%, 96.8% 91%, 3.1% 91%);
+
+            .triangle_animate{
+                @include inner-triangle-dimensions();
+
+                .inner_triangle2_text{
+                @include inner-triangle-text();
+                }
+            } 
+        }  
+    }
+
+    .triangle3 {
+        width: 45%;
+        height: 100px;
+        background-color: black;
+        clip-path: polygon(16% 0%, 84% 0%, 100% 95%, 0% 95%);
+        position: relative;
+
+        .inner_triangle3 {
+            @include inner-triangle-dimensions();
+            clip-path: polygon(17% 5%, 83% 4%, 97.8% 90%, 2% 91%);
+
+            .triangle_animate{
+               @include inner-triangle-dimensions();
+              
+                .inner_triangle3_text{
+                    @include inner-triangle-text();
+                } 
+            }
+        }
+    }  
+
+    .triangle4 {
+        width: 60%;
+        height: 100px;
+        background-color: black;
+        clip-path: polygon(12% 0%, 88% 0%, 100% 95%, 0% 95%);
+        position: relative;
+
+        .inner_triangle4{
+            @include inner-triangle-dimensions();
+            clip-path: polygon(12.7% 5%, 87.6% 6%, 98% 90%, 1.7% 91%);
+
+            .triangle_animate{
+                @include inner-triangle-dimensions();
+
+                .inner_triangle4_text{
+                @include inner-triangle-text();
+                }
+            }   
+        }
+    }  
+
+    .triangle5 {
+        width: 75%;
+        height: 100px;
+        background-color: black;
+        clip-path: polygon(9.5% 0%, 90.5% 0%, 100% 95%, 0% 95%);
+        position: relative;
+
+        .inner_triangle5{
+            @include inner-triangle-dimensions();
+            clip-path: polygon(10% 6%, 89.8% 5%, 98.5% 89%, 1.5% 90%);
+
+            .triangle_animate{
+                @include inner-triangle-dimensions();
+
+                .inner_triangle5_text{
+                    @include inner-triangle-text();
+                }  
+            }  
+        }
+    }  
+}
+
+/* Change the text and attributes in the home page */
+.hometext{
+    text-align: center;
+    font-size: 2rem;
+    padding: 10px;
+
+    .highlight{
+        font-style: italic;
+        color: $secondary-color;
+    }
+
+    p{
+        color: $primary-color;
+    }
+}
+
+/* When the screen is smaller than 480px, the top triangle will 
+take up the whole screen. Using viewport to be responsive
+across different mobile widths/heights. */
+@media screen and (max-width: $mobile){
+    .mountain{
+
+        .triangle{
+            width: 70%;
+            /* Height and margin to take up 100vh combined
+            so on any mobile screen under 480px, the top
+            of the mountain will take up the entire
+            screen height */
+            height: 25vh;
+            margin-top: 15vh;
+            margin-bottom: 60vh;
+        }
+
+        // Change size of triangles and font size of text
+        .triangle2{
+            width: 35%;
+
+            .inner_triangle2{
+
+                .triangle_animate{
+                    
+                    .inner_triangle2_text{
+                        padding-top: 50px;
+                    }  
+                }
+            }
+        }
+
+        .triangle3{
+            width: 55%;
+
+            .inner_triangle3{
+
+                .triangle_animate{
+
+                    .inner_triangle3_text{
+                        padding-top: 50px;
+                    }
+                }
+            }
+        }
+        
+        .triangle4{
+            width: 75%;
+
+            .inner_triangle4{
+
+                    .triangle_animate{
+
+                        .inner_triangle4_text{
+                            padding-top: 50px;
+                    }
+                }
+            }
+        }
+        
+        .triangle5{
+            width: 95%;
+
+            .inner_triangle5{
+
+                .triangle_animate{
+
+                    .inner_triangle5_text{
+                        padding-top: 50px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/* When the screen is wider than 768px, make the triangle take up the whole viewport */
+@media screen and (min-width: $tablet){
+
+    // Change size of text in home page
+    .hometext{
+        font-size: 2.8rem;
+    }
+
+    header{
+        height: 7vh;
+    }
+
+    .mountain{
+
+        .triangle{
+            height: $image-height;
+        }
+
+        .triangle2{
+            height: $image-height;
+        }
+
+        .triangle3{
+            height: $image-height;
+        }
+
+        .triangle4{
+            height: $image-height;
+        }
+
+        .triangle5{
+            height: $image-height;
+            margin-bottom: 13vh;
+        }
+    }
+}
+
+/* Animate the links/images to slightly zoom in on hover when 
+screen is above width 480px, as long as there is a mouse */
+@media screen and (min-width: $mobile){
+
+    .triangle_animate{
+        transition: transform 1s;
+
+        &:hover{
+            transform: scale(1.1);
+        }
+    }
+}
+
+/* Animate top triangle when width is under 768px */
+@media screen and (max-width: $tablet){
+    .triangle{
+        animation: rotation 2.5s;
+        /* Keep animation in rotated position */
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes rotation{
+        from{
+            transform: rotate(0deg);
+        }
+        to{
+            transform: rotate(180deg);
+        }
+    }
+}

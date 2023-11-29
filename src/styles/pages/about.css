@@ -1,0 +1,95 @@
+main {
+  font-family: "Bebas Neue", cursive;
+  font-size: 1.8rem;
+  color: #313e20;
+}
+main article section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  /* Give margin to text in about page */
+}
+main article section .abouttext {
+  margin: 15px;
+  /* Add icon to climbing list */
+  /* Add icon to hiking list */
+  /* Add icon to camping list */
+  /* Add icon to riding list */
+}
+main article section .abouttext .highlight {
+  color: #67753a;
+}
+main article section .abouttext .climbing_icon {
+  list-style: none;
+  padding: 5px 45px;
+  background-image: url("../../images/hand-back-fist-solid.svg");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 30px;
+}
+main article section .abouttext .hiking_icon {
+  list-style: none;
+  padding: 5px 45px;
+  background-image: url("../../images/person-hiking-solid.svg");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 30px;
+}
+main article section .abouttext .camping_icon {
+  list-style: none;
+  padding: 5px 45px;
+  background-image: url("../../images/campground-solid.svg");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 30px;
+}
+main article section .abouttext .riding_icon {
+  list-style: none;
+  padding: 5px 45px;
+  background-image: url("../../images/bicycle-solid.svg");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 38px;
+}
+main article section #hobbies {
+  padding: 20px;
+  border: 2px solid black;
+  border-radius: 10%;
+  margin-bottom: 30px;
+}
+main article section img {
+  width: 80%;
+  border-radius: 10%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border: 3px solid black;
+}
+
+/* When the width of screen is above 480px (mobile), make the image appear on the bottom */
+@media screen and (min-width: 480px) {
+  main article section .abouttext {
+    order: -1;
+  }
+  main article section img {
+    width: 60%;
+  }
+}
+/* When the screen is wider than 768px, make the section elements appear in a row format */
+@media screen and (min-width: 768px) {
+  main article section {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  main article section img {
+    width: 40%;
+  }
+}
+/* When screen is larger than 1008 pixels, the image width will 
+only be 30% of the section */
+@media screen and (min-width: 1008px) {
+  main article section img {
+    width: 30%;
+  }
+}/*# sourceMappingURL=about.css.map */
